@@ -142,9 +142,9 @@ fi
 
 ############################
 $NFT "add rule ip filter dpi ip protocol tcp queue num 0 bypass "
-$NFT "add rule ip filter stato ct state related,established 									log prefix \"ACCEPT state related-established:\"	counter accept"
-$NFT "add rule ip filter stato ct state related 												log prefix \"ACCEPT state related :\"          	counter accept"
-$NFT "add rule ip filter stato ct state established 											log prefix \"ACCEPT state established:\" 		counter accept"
+$NFT "add rule ip filter stato ct state related,established 									counter accept"
+$NFT "add rule ip filter stato ct state related 											    counter accept"
+$NFT "add rule ip filter stato ct state established 											counter accept"
 
 $NFT "add rule ip filter tcp_flags tcp flags fin,psh,urg / fin,syn,rst,psh,ack,urg 				log prefix \"DROP PortScanX-mas:\" 			counter drop "
 $NFT "add rule ip filter tcp_flags tcp flags fin,syn,rst,ack,urg / fin,syn,rst,psh,ack,urg 		log prefix \"DROP PortScanX-mas:\" 			counter drop"
